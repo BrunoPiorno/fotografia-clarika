@@ -1,0 +1,162 @@
+html {
+    box-sizing: border-box;
+    height: -webkit-fill-available;
+    scroll-behavior: smooth;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+  
+  body {
+    @include default-font();
+    font-size: rv(16px, 18px);
+    color: $primary-color;
+    scroll-behavior: smooth;
+    position: relative;
+  
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    ul li {
+      list-style: none;
+    }
+  
+    p {
+      line-height: 1.6;
+      font-weight: map-get($font-weights, light);
+      color: $primary-color;
+      font-family: $default-font;
+      //margin-bottom: 28px;
+  
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  section {
+    @include row();
+    position: relative;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="search"],
+  input[type="submit"],
+  textarea,
+  button {
+    @include default-font();
+    appearance: none;
+    border-radius: 0;
+  }
+  
+  button {
+    background-color: transparent;
+  }
+  
+  select {
+    @include default-font();
+  }
+  
+  // Define max number of font sizes
+  @for $i from 1 through 6 {
+  
+    h#{$i},
+    .h#{$i},
+    .h#{$i} p {
+      @include fontsizes(h#{$i});
+    }
+  }
+  
+  a {
+    color: $secondary-color;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $green;
+    }
+  }
+  
+  b,
+  strong,
+  strong * {
+    font-weight: 600;
+  }
+
+  .container {
+    max-width: map-get($site-widths, max-width) + $site-padding * 2;
+    margin: 0 auto;
+    padding: 0 $site-padding;
+    width: 100%;
+  
+    @include responsive('mobile-h') {
+      padding: 0 $site-padding / 2;
+    }
+  }
+  
+  .bg--white+.bg--white {
+    padding-top: 0;
+  }
+
+  .title {
+    font-family: $secondary-font;
+    letter-spacing: 1px;
+    color: $green;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 700;
+    @include fade(0, -50px, true, 1);
+
+    &::after {
+        content: '';
+        display: block;
+        width: 50px; 
+        height: 4px; 
+        background-color: $green; 
+        margin: 5px auto 0 auto; 
+        border-radius: 2px; 
+    }
+}
+
+.error-404 {
+  height: 100svh;
+  background: $black;
+
+  .container {
+    height: 100%;
+  }
+
+  &__cont {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+  }
+
+  &__title {
+    font-family: $secondary-font;
+  }
+  
+  &__text p {
+    font-weight: 500;
+    font-family: $secondary-font;
+    color: $white;
+  }
+}

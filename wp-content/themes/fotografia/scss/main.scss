@@ -1,0 +1,33 @@
+@charset 'UTF-8';
+
+// Configuration and helpers
+@import 'abstracts/_variables',
+'abstracts/_functions',
+'abstracts/_mixins';
+
+// Base stuff
+@import 'base/_typography',
+'base/_base';
+
+// Components
+@import 
+'components/_site-logo',
+'components/_menu',
+'components/_socials',
+'components/_form';
+
+// Vendors
+@import
+'vendors/swiper';
+
+// Layout 
+@import 
+'layout/_header',
+'layout/_footer';
+
+// Blocks
+@import
+'../modules/blocks/hero/styles',
+'../modules/blocks/quienes-somos/styles',
+'../modules/blocks/portfolio/styles',
+'../modules/blocks/contact/styles';

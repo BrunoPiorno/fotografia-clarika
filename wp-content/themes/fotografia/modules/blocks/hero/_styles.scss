@@ -1,0 +1,71 @@
+.hero {
+    overflow: hidden;
+    position: relative;
+    height: 100svh;
+
+    @include responsive('mobile-h') {
+        height: 60svh;
+    }
+
+    .swiper-container {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .swiper-slide {
+        position: relative;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(43, 43, 43, 0.6) 50%, rgba(98, 102, 101, 0.3) 100%);
+        }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        z-index: 8;
+        color: $green;
+    }
+
+    .swiper-pagination {
+        z-index: 8;
+    }
+    .swiper-pagination-bullet-active {
+        background: $green;
+    }
+
+    .hero__image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__title {
+        font-family: $secondary-font;
+        letter-spacing: 1px;
+        font-size: 50px;
+        text-transform: uppercase;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        z-index: 10;
+        color: $white;
+        @include fade(0, -50px, true, 1);
+        transform: translate(-50%, -50%);
+        
+        @include responsive('mobile-h') {
+            font-size: 30px;
+        }
+    }
+}

@@ -1,0 +1,123 @@
+.site-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @include responsive('tablet-h') {
+      padding: 114px 20px 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: $black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 5;
+      transform: translateY(-100%);
+      transition: all .6s ease;
+    }
+
+    &__item {
+      @include responsive('tablet-h') {
+        transition: all 1s ease;
+        opacity: 0;
+      }
+    }
+
+    &__link {
+        font-family: $secondary-font;
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $white;
+    }
+}
+
+.responsive__btn {
+    position: relative;
+    z-index: 11;
+    width: 28px;
+    height: 22px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    display: none;
+    margin-left: 25px;
+  
+    & span {
+      display: inline-block;
+      background: $third-color;
+      width: 100%;
+      height: 2px;
+      transition: all 0.5s ease;
+      position: absolute;
+      left: 0;
+    }
+  
+    & span:nth-child(1) {
+      top: 0px;
+    }
+  
+    & span:nth-child(2),
+    & span:nth-child(3) {
+      top: 9px;
+    }
+  
+    & span:nth-child(4) {
+      top: 18px;
+    }
+  
+    &.burger_menu {
+      display: block;
+    }
+  
+    @include responsive('tablet-h') {
+      display: block;
+    }
+  }
+  
+  
+  .menu-responsive-open {
+    .responsive__btn {
+      span {
+        background: $primary-color;
+      }
+  
+      span:nth-child(1) {
+        top: 9px;
+        width: 0%;
+        left: 50%;
+      }
+  
+      span:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+  
+      span:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+  
+      span:nth-child(4) {
+        top: 9px;
+        width: 0%;
+        left: 50%;
+      }
+    }
+  
+    .site-menu.burger_menu {
+      display: block;
+    }
+  
+    .header__bottom {
+      transform: translate(0, 0);
+    }
+  }

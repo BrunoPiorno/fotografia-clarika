@@ -1,0 +1,123 @@
+form {
+	width: min(600px, 100%);
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	.title {
+		font-size: calc(40px + 0.390625vw);
+		text-transform: uppercase;
+		text-align: center;
+		margin-bottom: 25px;
+		color: $black;
+		font-weight: 400;
+		@include fade(0, 100px, true, 0);
+	}
+
+	.content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 5%;
+	}
+	.row {
+		position: relative;
+		min-height: 40px;
+
+
+		&.textformat {
+			min-height: 150px;
+		}
+
+		p {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	label {
+		color: $secondary-color;
+		font-size: 13px;
+		position: absolute;
+		width: auto;
+		top: -10px;
+		left: 15px;
+		z-index: 1;
+		//background: #Faebd7;
+		border-radius: 2px;
+		padding: 0 5px;
+	}
+
+	input,
+	textarea {
+		font-weight: 700;
+		border-radius: 20px !important;
+		//background: #Faebd7;
+		width: 100%;
+		min-height: 40px;
+		outline: none;
+		padding: 6px 15px;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		border: 1px solid $black;
+
+		&.wpcf7-not-valid {
+			border: 1px solid #ff1a1a;
+		}
+
+		&:focus {
+			border: 1px solid $secondary-color;;
+		}
+	}
+
+	textarea {
+		resize: none;
+	}
+
+	.button {
+		display: flex;
+		justify-content: flex-end;
+
+		input {
+			font-size: 16px;
+			background-color: $green;
+			cursor: pointer;
+			border: none;
+
+			&:hover {
+				filter: brightness(1.1);
+			}
+		}
+
+		p {
+			position: relative;
+			padding: 6px 15px;
+		}
+	}
+}
+
+.wpcf7 {
+	display: flex;
+	justify-content: center;
+}
+
+.wpcf7-not-valid-tip {
+	display: none;
+}
+
+.wpcf7-response-output {
+	background: lighten(#ff1a1a, 10%);
+	border-radius: 5px;
+	border: 1px solid $third-color !important;
+	margin: 0 !important;
+	color: $white;
+}
+
+.wpcf7-form-control-wrap {
+	position: unset;
+}

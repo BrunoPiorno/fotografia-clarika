@@ -1,0 +1,43 @@
+.quienes-somos {
+    padding: 60px 0;
+
+    &__cont {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+
+        @include responsive('mobile-h') {
+            grid-template-columns: 100%;
+            gap: 30px;
+        }
+
+        &--right {
+            .quienes-somos__description {
+                order: -1;
+                padding: 0 10% 0 0;
+                @include fade(-50px, 0, true, 1);
+
+                @include responsive('mobile-h') {
+                    order: 0;
+                    padding: 0;
+                }
+            }
+
+            .quienes-somos__image {
+                @include fade(50px, 0, true, 2);
+            }
+           
+        }
+    }
+    &__description {
+        padding-left: 10%;
+        @include fade(50px, 0, true, 1);
+        @include responsive('mobile-h') {
+            padding-left: 0;
+        }
+    }
+
+    &__image {
+        @include fade(-50px, 0, true, 1);
+    }
+}
